@@ -6,13 +6,14 @@
 
 package singleton
 
-// Injectors from wire_dummy.go:
+// Injectors from wire_stub.go:
 
-func initializeRootComponent() (*RootComponent, error) {
+func InitializeRootComponent() (*RootComponent, error) {
 	dbConnectionService := NewDbConnectionService()
 	chatService := NewChatService(dbConnectionService)
 	rootComponent := &RootComponent{
-		chatService: chatService,
+		ChatService:         chatService,
+		DbConnectionService: dbConnectionService,
 	}
 	return rootComponent, nil
 }

@@ -12,5 +12,6 @@ var AppSet = wire.NewSet(
 
 // RootComponent: put all services that you want to directly access in RootComponent
 type RootComponent struct {
-	chatService *ChatService
+	ChatService         *ChatService
+	DbConnectionService *DbConnectionService
 }
