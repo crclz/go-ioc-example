@@ -9,7 +9,7 @@ import (
 	"github.com/google/wire"
 )
 
-func initializeScopedRootComponent(rootComponent *singleton.RootComponent) (*ScopedRootComponent, error) {
+func initializeScopedRootDependencyLocator(RootDependencyLocator *singleton.RootDependencyLocator) (*ScopedRootDependencyLocator, error) {
 	wire.Build(ScopedSet)
-	return &ScopedRootComponent{}, nil
+	return &ScopedRootDependencyLocator{}, nil
 }

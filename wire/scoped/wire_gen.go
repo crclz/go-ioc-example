@@ -12,11 +12,11 @@ import (
 
 // Injectors from wire_stub.go:
 
-func initializeScopedRootComponent(rootComponent *singleton.RootComponent) (*ScopedRootComponent, error) {
-	dbConnectionService := FromRootComponentProvideDbConnectionService(rootComponent)
+func initializeScopedRootDependencyLocator(RootDependencyLocator *singleton.RootDependencyLocator) (*ScopedRootDependencyLocator, error) {
+	dbConnectionService := FromRootDependencyLocatorProvideDbConnectionService(RootDependencyLocator)
 	authenticationService := NewAuthenticationService(dbConnectionService)
-	scopedRootComponent := &ScopedRootComponent{
+	scopedRootDependencyLocator := &ScopedRootDependencyLocator{
 		authenticationService: authenticationService,
 	}
-	return scopedRootComponent, nil
+	return scopedRootDependencyLocator, nil
 }
