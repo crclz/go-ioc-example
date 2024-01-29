@@ -8,12 +8,12 @@ package singleton
 
 // Injectors from wire_stub.go:
 
-func InitializeRootComponent() (*RootComponent, error) {
+func InitializeRootDependencyLocator() (*RootDependencyLocator, error) {
 	dbConnectionService := NewDbConnectionService()
 	chatService := NewChatService(dbConnectionService)
-	rootComponent := &RootComponent{
+	rootDependencyLocator := &RootDependencyLocator{
 		ChatService:         chatService,
 		DbConnectionService: dbConnectionService,
 	}
-	return rootComponent, nil
+	return rootDependencyLocator, nil
 }

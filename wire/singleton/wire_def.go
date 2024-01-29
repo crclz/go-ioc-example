@@ -7,11 +7,11 @@ import (
 var AppSet = wire.NewSet(
 	NewChatService,
 	NewDbConnectionService,
-	wire.Struct(new(RootComponent), "*"),
+	wire.Struct(new(RootDependencyLocator), "*"),
 )
 
-// RootComponent: put all services that you want to directly access in RootComponent
-type RootComponent struct {
+// RootDependencyLocator: put all services that you want to directly access
+type RootDependencyLocator struct {
 	ChatService         *ChatService
 	DbConnectionService *DbConnectionService
 }

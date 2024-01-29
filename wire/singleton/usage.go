@@ -1,10 +1,10 @@
 package singleton
 
 func usage() {
-	rootComponent, err := InitializeRootComponent()
+	rootDependencyLocator, err := InitializeRootDependencyLocator()
 	if err != nil {
 		panic(err)
 	}
 
-	rootComponent.ChatService.Chat()
+	rootDependencyLocator.ChatService.Chat()
 }

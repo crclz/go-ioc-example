@@ -8,7 +8,7 @@ import (
 	"github.com/google/wire"
 )
 
-func InitializeRootComponent() (*RootComponent, error) {
+func InitializeRootDependencyLocator() (*RootDependencyLocator, error) {
 	wire.Build(AppSet)
-	return &RootComponent{}, nil
+	return &RootDependencyLocator{}, nil
 }
