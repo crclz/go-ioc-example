@@ -6,19 +6,19 @@ import (
 )
 
 var ScopedSet = wire.NewSet(
-	wire.Struct(new(ScopedRootDependencyLocator), "*"),
+	wire.Struct(new(ScopedRootServiceLocator), "*"),
 
 	NewAuthenticationService,
 
 	// from root component provide ...
-	FromRootDependencyLocatorProvideDbConnectionService,
+	FromRootServiceLocatorProvideDbConnectionService,
 )
 
-// ScopedRootDependencyLocator: put all services that you want to directly access in here
-type ScopedRootDependencyLocator struct {
+// ScopedRootServiceLocator: put all services that you want to directly access in here
+type ScopedRootServiceLocator struct {
 	authenticationService *AuthenticationService
 }
 
-func FromRootDependencyLocatorProvideDbConnectionService(p *singleton.RootDependencyLocator) *singleton.DbConnectionService {
+func FromRootServiceLocatorProvideDbConnectionService(p *singleton.RootServiceLocator) *singleton.DbConnectionService {
 	return p.DbConnectionService
 }

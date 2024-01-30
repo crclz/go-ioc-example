@@ -1,22 +1,24 @@
 package scoped
 
-// func main() {
-// 	var RootDependencyLocator, err = singleton.InitializeRootDependencyLocator()
-// 	if err != nil {
-// 		panic(err)
-// 	}
+import "github.com/crclz/go-ioc-example/wire/singleton"
 
-// 	for i := 0; i < 10; i++ {
-// 		handleRequest(RootDependencyLocator)
-// 	}
-// }
+func main() {
+	var rootServiceLocator, err = singleton.InitializeRootServiceLocator()
+	if err != nil {
+		panic(err)
+	}
 
-// func handleRequest(RootDependencyLocator *singleton.RootDependencyLocator) error {
-// 	var scopedRootDependencyLocator, err = initializeScopedRootDependencyLocator(RootDependencyLocator)
-// 	if err != nil {
-// 		panic(err)
-// 	}
+	for i := 0; i < 10; i++ {
+		handleRequest(rootServiceLocator)
+	}
+}
 
-// 	scopedRootDependencyLocator.authenticationService.Authenticate()
-// 	return nil
-// }
+func handleRequest(rootServiceLocator *singleton.RootServiceLocator) error {
+	var scopedRootServiceLocator, err = initializeScopedRootServiceLocator(rootServiceLocator)
+	if err != nil {
+		panic(err)
+	}
+
+	scopedRootServiceLocator.authenticationService.Authenticate()
+	return nil
+}
